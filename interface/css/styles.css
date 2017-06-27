@@ -1,7 +1,7 @@
 /**************************
-	RESET 
+	RESET
 ***************************/
-		
+
 		@import url(https://fonts.googleapis.com/css?family=Patua+One|Fira+Sans:300,400,700|Montserrat:400,700);
 
 		body {
@@ -23,12 +23,12 @@
 		p {
 			margin: 0;
 		}
-		
+
 		img {
 			max-width: 100%;
 			height: auto;
 		}
-		
+
 		a:link,
 		a:visited,
 		a:hover,
@@ -40,8 +40,8 @@
 			margin: 0;
 			font-weight: normal;
 		}
-		
-  
+
+
 
 /**************************
 	GLOBALS
@@ -129,7 +129,7 @@
 	}
 
 
-	
+
 /**************************
 	VIDEO
 ***************************/
@@ -463,7 +463,7 @@
 	}
 
 
-	
+
 /**************************
 	STAGES
 ***************************/
@@ -553,13 +553,19 @@
 		margin-top: 40px;
 	}
 
-	a.igordone4youleads-stages-link:hover,
-	a.igordone4youleads-stages-link:active {
+	a.igordone4youleads-stages-link:hover {
+		background-color:#5ccfa2;
+	}
 
+	a.igordone4youleads-stages-link:active,
+	a.igordone4youleads-stages-link:focus {
+		/*box-shadow: inset 0 4px 1px rgba( 0, 0, 0, .3 ) !important;*/
+		border-bottom: 0;
+		border-top: 4px solid #44a17c;
 	}
 
 
-	
+
 /**************************
 	Questions
 ***************************/
@@ -622,7 +628,7 @@
 	}
 
 
-	
+
 /**************************
 	MEDIA QUERIES
 ***************************/
@@ -969,3 +975,21 @@
 				font-size: 17px;
 			}
 		}
+
+/*footer */
+footer{background-color:#1b2034;padding:45px 0 30px 0;font-family:'Patua One',cursive;text-align:center;}footer.col-md-4{height:106px;}footer .col-md-4::after{content:"";display:block;border-left:1px solid #2e3249;height:106px;position:absolute;top:0;left:0;}footer .col-md-4:first-of-type::after{display:none;}footer p{color:#b8bed7;font-size:17.4px;font-weight:bold;text-transform:uppercase;font-family:'Patua One',cursive;}.footer-trafic-number{display:inline-block;color:#dea318;font-size:32px;margin:0px 0 -6px;}.footer-email:link,.footer-email:visited,.footer-email:hover,.footer-email:active{color:#dea318;font-size:16px;text-decoration:none;font-family:'Patua One',cursive;}.footer-links{text-align:right;margin-top:40px;color:#686e88;font-size:15px;font-family:'Fira Sans',sans-serif;}.footer-links span{display:inline-block;margin:0 5px;color:#000000;}.footer-links a:link,.footer-links a:visited{color:#686e88;text-decoration:none;}.footer-links a:hover,.footer-links a:active{color:#dea318;text-decoration:none;}.igorsoloads-footer-icons{background-image:url('../images/footer/icons.png');background-repeat:no-repeat;display:block;margin:0 auto;}.igorsoloads-footer-icons-contact{width:33px;height:34px;background-position:-5px -5px;margin:5px auto 5px 0 auto;}.igorsoloads-footer-icons-email{width:28px;height:28px;background-position:-48px -5px;}
+
+@media (max-width: 991px) {
+	footer .col-md-4:nth-of-type(2),
+	footer .col-md-4:last-of-type,
+	footer a,
+	.footer-links span {
+			display: none;
+	}
+	footer .col-md-4::after {
+			display: none;
+	}
+	.footer-links {
+			text-align: center;
+	}
+}

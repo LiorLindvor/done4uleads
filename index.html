@@ -27,8 +27,6 @@
 				</div>
 				<div class="igordone4youleads-header-image">
 					<img src="interface/images/header-image.png" alt="" />
-					<div class="igordone4youleads-header-image-lead igordone4youleads-header-image-lead-one">+283 leads</div>
-					<div class="igordone4youleads-header-image-lead igordone4youleads-header-image-lead-two">+344 leads</div>
 				</div>
 				<h1 class="ff-patuaone">
 					Does List Building Scare The <br />
@@ -184,21 +182,21 @@
 								<div class="col-md-6">
 									<div class="igordone4youleads-packs-bonus-content-timer">
 										<p class="igordone4youleads-packs-bonus-content-timer-title ff-patuaone">Bonus Gone Forever In</p>
-										<div class="row no-gutters">
+										<div class="row no-gutters" id="timer">
 											<div class="col-3">
-												<strong class="ff-patuaone">01</strong>
+												<strong class="ff-patuaone days">00</strong>
 												<span class="ff-montserrat">Days</span>
 											</div>
 											<div class="col-3">
-												<strong class="ff-patuaone">04</strong>
+												<strong class="ff-patuaone hours">04</strong>
 												<span class="ff-montserrat">Hours</span>
 											</div>
 											<div class="col-3">
-												<strong class="ff-patuaone">34</strong>
+												<strong class="ff-patuaone minutes">34</strong>
 												<span class="ff-montserrat">Minutes</span>
 											</div>
 											<div class="col-3">
-												<strong class="ff-patuaone">12</strong>
+												<strong class="ff-patuaone seconds">12</strong>
 												<span class="ff-montserrat">Seconds</span>
 											</div>
 										</div>
@@ -316,9 +314,138 @@
 			</div>
 		</section>
 
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<img src="interface/images/logo-footer.png" alt="" />
+					</div>
+					<div class="col-md-4">
+						<div class="igorsoloads-footer-icons igorsoloads-footer-icons-contact"></div>
+						<a href="mailto:support@igorsoloads.com" class="footer-email">support@igorsoloads.com</a>
+						<p>contact OUR SUPPORT TEAM</p>
+					</div>
+					<div class="col-md-4">
+						<div class="igorsoloads-footer-icons igorsoloads-footer-icons-email"></div>
+				<div class="email-top">
+						<div class="fb-like" data-href="https://www.facebook.com/riskfreesoloads/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+						</div>
+						<p>Connect with us on Facebook</p>
+					</div>
+				</div>
+
+				<div class="footer-links">
+					All rights reserved - Igor Solo Ads © 2017
+					<span>&middot;</span>
+					<a href="https://www.igorsoloads.com/faq/policy.html" target="_blank" class="footer-links">Refund & Cancellation Policy</a>
+					<span>&middot;</span>
+					<a href="https://www.listbuildinglifestyleshow.com" target="_blank" class="footer-links">List Building Lifestyle Show</a>
+				</div>
+			</div>
+		</footer>
+
 		<!-- Scripts -->
 		<script src="interface/js/jquery-3.2.1.min.js"></script>
 		<script src="interface/js/tether.min.js"></script>
 		<script src="interface/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			function getRandomArbitrary(min, max)
+			{
+			  return Math.random() * (max - min) + min;
+			}
+
+			$( document ).ready( function()
+			{
+				for( var i = 0; i <= 1; i++ )
+				{
+					$('.igordone4youleads-header-image').append('<div class="igordone4youleads-header-image-lead igordone4youleads-header-image-lead-one">+' + parseInt( getRandomArbitrary(50,400) ) + ' leads</div>');
+					$('.igordone4youleads-header-image').append('<div class="igordone4youleads-header-image-lead igordone4youleads-header-image-lead-two">+' + parseInt( getRandomArbitrary(50,400) ) + ' leads</div>');
+				}
+
+
+				$( ".igordone4youleads-header-image-lead" ).each( function(key)
+				{
+					var $this = $( this );
+					setTimeout( function()
+					{
+						animate( $this );
+					}, getRandomArbitrary(1000,3000) * key);
+				});
+
+				function animate( $this )
+				{
+					var topToBefore = $this.css("top");
+					$this.delay(200).animate({ top: '-900px', opacity: 0} , getRandomArbitrary(1000,3000), function()
+					{
+						$this.html('+ ' + parseInt( getRandomArbitrary(50,400) ) + ' leads');
+
+						$this.animate( { top: topToBefore, opacity: 1 }, getRandomArbitrary(1000,3000), function()
+						{
+							animate( $this );
+						} );
+					});
+				}
+			});
+
+			function getTimeRemaining(endtime)
+			{
+				var t = Date.parse(endtime) - Date.parse(new Date());
+				var seconds = Math.floor((t / 1000) % 60);
+				var minutes = Math.floor((t / 1000 / 60) % 60);
+				var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+				var days = Math.floor(t / (1000 * 60 * 60 * 24));
+
+				return {
+					'total': t,
+					'days': days,
+					'hours': hours,
+					'minutes': minutes,
+					'seconds': seconds
+				};
+			}
+
+			function initializeClock(id, endtime) {
+				var clock = document.getElementById(id);
+				var hoursSpan = clock.querySelector('.hours');
+				var minutesSpan = clock.querySelector('.minutes');
+				var secondsSpan = clock.querySelector('.seconds');
+				var daysSpan    = clock.querySelector('.days');
+
+				function updateClock() {
+					var t = getTimeRemaining(endtime);
+
+					hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+					minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+					secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+					daysSpan.innerHTML    = ('0' + t.days).slice(-2);
+
+					if (t.total <= 0) {
+						clearInterval(timeinterval);
+					}
+				}
+
+				updateClock();
+				var timeinterval = setInterval(updateClock, 1000);
+			}
+			Date.prototype.addDays = function(days) {
+					this.setDate(this.getDate() + parseInt(days));
+					return this;
+			};
+
+			if( localStorage.getItem('timer') == null )
+				localStorage.setItem('timer', new Date().addDays(7).getTime() );
+
+			var current = new Date();
+			if( localStorage.getItem('timer') > current.getTime() )
+			{
+				var deadline = new Date();
+						deadline.setTime( localStorage.getItem('timer') );
+				initializeClock('timer', deadline );
+			}
+			else {
+				$(".igordone4youleads-packs-bonus-wrapper").hide();
+			}
+		</script>
 	</body>
 </html>
